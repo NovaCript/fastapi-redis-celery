@@ -16,5 +16,5 @@ async def get_task_result(task_id: str):
 
 
 async def send_task(x:int, y:int):
-    task = celery.send_task('tasks.add', args=[x, y])
+    task = add.delay(x,y)
     return {'task_id': str(task.id)}
